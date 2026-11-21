@@ -1,0 +1,68 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings</title>
+
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+
+    <aside class="sidebar">
+        <h2>Dental Factory</h2>
+
+        <nav>
+            <a href="/">Dashboard</a>
+            <a href="/patients">Patients</a>
+            <a href="/dentists">Dentists</a>
+            <a href="/job_tracking">Job Tracking</a>
+            <a href="/production">Production</a>
+            <a href="/billing">Billing</a>
+            <a href="/reports">Reports</a>
+            <a href="/settings" class="active">Settings</a>
+        </nav>
+    </aside>
+
+    <main class="main-content">
+
+        <h1>Settings</h1>
+        <p>Manage your clinic information</p>
+
+        {% if saved %}
+            <p style="color: green; margin-top: 15px;">
+                Settings saved successfully!
+            </p>
+        {% endif %}
+
+        <form method="POST" action="/settings" class="patient-form">
+
+            <label>Clinic Name</label>
+            <input type="text" name="clinic_name"
+            value="{{ settings.get('clinic_name', '') }}" required>
+
+            <label>Phone Number</label>
+            <input type="text" name="phone"
+            value="{{ settings.get('phone', '') }}" required>
+
+            <label>Email</label>
+            <input type="email" name="email"
+            value="{{ settings.get('email', '') }}">
+
+            <label>Address</label>
+            <textarea name="address" rows="4">{{ settings.get('address', '') }}</textarea>
+
+            <button type="submit">Save Settings</button>
+
+        </form>
+
+    </main>
+
+</div>
+
+</body>
+</html>

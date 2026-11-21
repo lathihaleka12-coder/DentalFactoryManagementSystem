@@ -1,0 +1,104 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dentist Management</title>
+
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+
+    <aside class="sidebar">
+        <h2>🦷 Dental Factory</h2>
+        <p class="subtitle">Management System</p>
+
+        <nav>
+            <a href="/">Dashboard</a>
+            <a href="/patients">Patients</a>
+            <a href="/dentists" class="active">Dentists</a>
+            <a href="/job_tracking">Job Tracking</a>
+            <a href="/production">Production</a>
+            <a href="/billing" class="active">Billing</a>
+            <a href="#">Reports</a>
+            <a href="#">Settings</a>
+        </nav>
+    </aside>
+
+    <main class="main-content">
+
+        <h1>Dentist Management</h1>
+
+        <h2>Add New Dentist</h2>
+
+        <form method="POST" action="/dentists" class="patient-form">
+
+            <label>Dentist Name</label>
+            <input type="text" name="name"
+                   placeholder="Enter dentist name" required>
+
+            <label>Specialization</label>
+            <input type="text" name="specialization"
+                   placeholder="Enter specialization" required>
+
+            <label>Phone Number</label>
+            <input type="tel" name="phone"
+                   placeholder="Enter phone number" required>
+
+            <label>Email</label>
+            <input type="email" name="email"
+                   placeholder="Enter email address" required>
+
+            <button type="submit">Save Dentist</button>
+
+        </form>
+
+        <h2>Dentist List</h2>
+
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Specialization</th>
+                <th>Phone</th>
+                <th>Email</th>
+                <th>Actions</th>
+            </tr>
+
+            {% for dentist in dentists %}
+            <tr>
+                <td>{{ dentist[0] }}</td>
+                <td>{{ dentist[1] }}</td>
+                <td>{{ dentist[2] }}</td>
+                <td>{{ dentist[3] }}</td>
+                <td>{{ dentist[4] }}</td>
+
+                <td>
+                    <a href="/edit_dentist/{{ dentist[0] }}"
+                       class="edit-btn">Edit</a>
+
+                    <form method="POST"
+                          action="/delete_dentist/{{ dentist[0] }}"
+                          style="display:inline;"
+                          onsubmit="return confirm('Are you sure you want to delete this dentist?');">
+
+                        <button type="submit" class="delete-btn">
+                            Delete
+                        </button>
+
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+
+    </main>
+
+</div>
+
+</body>
+</html>

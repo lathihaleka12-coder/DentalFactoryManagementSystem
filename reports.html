@@ -1,0 +1,125 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reports</title>
+
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+
+    <aside class="sidebar">
+        <h2>🦷 Dental Factory</h2>
+        <p class="subtitle">Management System</p>
+
+        <nav>
+            <a href="/">Dashboard</a>
+            <a href="/patients">Patients</a>
+            <a href="/dentists">Dentists</a>
+            <a href="/job_tracking">Job Tracking</a>
+            <a href="/production">Production</a>
+            <a href="/billing">Billing</a>
+            <a href="/reports" class="active">Reports</a>
+            <a href="/settings">Settings</a>
+        </nav>
+    </aside>
+
+    <main class="main-content">
+
+        <h1>Reports</h1>
+
+        <h2>Management Summary</h2>
+
+        <table>
+            <tr>
+                <th>Category</th>
+                <th>Total</th>
+            </tr>
+
+            <tr>
+                <td>Total Patients</td>
+                <td>{{ total_patients }}</td>
+            </tr>
+
+            <tr>
+                <td>Total Dentists</td>
+                <td>{{ total_dentists }}</td>
+            </tr>
+
+            <tr>
+                <td>Total Jobs</td>
+                <td>{{ total_jobs }}</td>
+            </tr>
+
+            <tr>
+                <td>Total Productions</td>
+                <td>{{ total_productions }}</td>
+            </tr>
+
+            <tr>
+                <td>Total Bills</td>
+                <td>{{ total_bills }}</td>
+            </tr>
+        </table>
+
+        <h2>Billing Summary</h2>
+
+        <table>
+            <tr>
+                <th>Description</th>
+                <th>Amount</th>
+            </tr>
+
+            <tr>
+                <td>Total Revenue</td>
+                <td>₹ {{ total_revenue }}</td>
+            </tr>
+
+            <tr>
+                <td>Pending Amount</td>
+                <td>₹ {{ pending_amount }}</td>
+            </tr>
+        </table>
+
+        <h2>Job Status Summary</h2>
+
+        <table>
+            <tr>
+                <th>Job Status</th>
+                <th>Count</th>
+            </tr>
+
+            {% for status, count in job_status %}
+            <tr>
+                <td>{{ status }}</td>
+                <td>{{ count }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+
+        <h2>Production Stage Summary</h2>
+
+        <table>
+            <tr>
+                <th>Production Stage</th>
+                <th>Count</th>
+            </tr>
+
+            {% for stage, count in production_stages %}
+            <tr>
+                <td>{{ stage }}</td>
+                <td>{{ count }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+
+    </main>
+</div>
+
+</body>
+</html>

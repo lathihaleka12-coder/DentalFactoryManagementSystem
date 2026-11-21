@@ -1,0 +1,276 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f7fb;
+    color: #263445;
+}
+
+.container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Sidebar */
+
+.sidebar {
+    width: 250px;
+    background: #123d50;
+    color: white;
+    padding: 25px 18px;
+    flex-shrink: 0;
+}
+
+.sidebar h2 {
+    font-size: 21px;
+}
+
+.subtitle {
+    color: #b9d4dc;
+    margin: 10px 0 30px;
+    font-size: 13px;
+}
+
+.sidebar nav a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 14px;
+    margin-bottom: 8px;
+    border-radius: 8px;
+}
+
+.sidebar nav a:hover,
+.sidebar nav a.active {
+    background: #087f8c;
+}
+
+/* Main Content */
+
+.main-content {
+    flex: 1;
+    padding: 35px;
+    min-width: 0;
+}
+
+.main-content h1 {
+    color: #087f8c;
+    margin-bottom: 15px;
+}
+
+.main-content > p {
+    margin-bottom: 30px;
+    font-size: 17px;
+}
+
+/* Dashboard Cards */
+
+.dashboard {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.card {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+    border-left: 5px solid #087f8c;
+}
+
+.card h3 {
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.card h2 {
+    font-size: 32px;
+}
+
+.patients {
+    border-left-color: #2196f3;
+}
+
+.dentists {
+    border-left-color: #4caf50;
+}
+
+.pending {
+    border-left-color: #ff9800;
+}
+
+.completed {
+    border-left-color: #9c27b0;
+}
+
+.production {
+    border-left-color: #e91e63;
+}
+
+@media (max-width: 700px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+    }
+
+    .dashboard {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Patient Registration Form */
+
+.patient-form {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    max-width: 650px;
+    margin: 20px 0 35px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+}
+
+.patient-form label {
+    display: block;
+    margin: 15px 0 8px;
+    font-weight: bold;
+}
+
+.patient-form input,
+.patient-form textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 15px;
+}
+
+.patient-form textarea {
+    min-height: 90px;
+}
+
+.patient-form button {
+    margin-top: 20px;
+    padding: 12px 25px;
+    background: #087f8c;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+/* Patient Table */
+
+table {
+    width: 100%;
+    background: white;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 14px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+th {
+    background: #087f8c;
+    color: white;
+}
+
+.edit-btn {
+    display: inline-block;
+    padding: 9px 15px;
+    background: #2196f3;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-right: 5px;
+}
+
+.delete-btn {
+    padding: 9px 15px;
+    background: #e53935;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.edit-btn:hover {
+    background: #1565c0;
+}
+
+.delete-btn:hover {
+    background: #b71c1c;
+}
+
+.edit-btn {
+    display: inline-block;
+    padding: 8px 15px;
+    background-color: #3498db;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 14px;
+    margin-right: 5px;
+}
+
+.edit-btn:hover {
+    background-color: #217dbb;
+}
+
+.delete-btn {
+    padding: 8px 15px;
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.delete-btn:hover {
+    background-color: #c0392b;
+}
+
+.edit-btn {
+    background-color: #078b9b;
+    color: white;
+    padding: 8px 15px;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.delete-btn {
+    background-color: #dc3545;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+/* Additional Dashboard Cards */
+
+.revenue {
+    border-left-color: #009688;
+}
+
+.pending-payment {
+    border-left-color: #f44336;
+}
+
+.total-production {
+    border-left-color: #673ab7;
+}

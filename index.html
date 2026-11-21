@@ -1,0 +1,86 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dental Factory Management</title>
+
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+
+    <aside class="sidebar">
+        <h2>🦷 Dental Factory</h2>
+        <p class="subtitle">Management System</p>
+
+        <nav>
+            <a href="/" class="active">Dashboard</a>
+            <a href="/patients">Patients</a>
+            <a href="/dentists">Dentists</a>
+            <a href="/job_tracking">Job Tracking</a>
+            <a href="/production">Production</a>
+            <a href="/billing">Billing</a>
+            <a href="/reports">Reports</a>
+            <a href="/settings">Settings</a>
+        </nav>
+    </aside>
+
+    <main class="main-content">
+
+        <h1>Dashboard</h1>
+        <p>Welcome to Dental Factory!</p>
+
+        <div class="dashboard">
+
+            <div class="card patients">
+                <h3>Total Patients</h3>
+                <h2>{{ total_patients }}</h2>
+            </div>
+
+            <div class="card dentists">
+                <h3>Total Dentists</h3>
+                <h2>{{ total_dentists }}</h2>
+            </div>
+
+            <div class="card pending">
+                <h3>Pending Jobs</h3>
+                <h2>{{ pending_jobs }}</h2>
+            </div>
+
+            <div class="card completed">
+                <h3>Completed Jobs</h3>
+                <h2>{{ completed_jobs }}</h2>
+            </div>
+
+            <div class="card production">
+                <h3>Today's Production</h3>
+                <h2>{{ todays_production }}</h2>
+            </div>
+
+            <div class="card total-production">
+                <h3>Total Production</h3>
+                <h2>{{ total_production }}</h2>
+            </div>
+
+            <div class="card revenue">
+                <h3>Total Revenue</h3>
+                <h2>₹{{ "%.2f"|format(total_revenue) }}</h2>
+            </div>
+
+            <div class="card pending-payment">
+                <h3>Pending Payments</h3>
+                <h2>₹{{ "%.2f"|format(pending_payment) }}</h2>
+            </div>
+
+        </div>
+
+    </main>
+
+</div>
+
+</body>
+</html>
